@@ -7,6 +7,7 @@ import {
   Image,
   TextInput,
 } from 'react-native';
+import {connect} from 'react-redux';
 import ImageSlider from 'react-native-image-slider';
 import {Icon} from 'native-base';
 
@@ -132,61 +133,6 @@ class ShopScreen extends Component {
                 }
                 title="Sayuran"
                 img={require('../assets/assetsF/Icon/wortel.png')}
-              />
-              {/* </TouchableOpacity> */}
-              <MainFeature
-                onPress={() =>
-                  this.props.navigation.navigate('SearchScreen', 'Buah-Buahan')
-                }
-                title="Buah Segar"
-                img={require('../assets/assetsF/Icon/alpukat.png')}
-              />
-              <MainFeature
-                title="Karbohidrat"
-                img={require('../assets/assetsF/Icon/gandum.png')}
-              />
-              <MainFeature
-                title="Terbaru"
-                img={require('../assets/assetsF/Icon/new.jpg')}
-              />
-              {/* 2 */}
-              <MainFeature
-                title="Spesial Promo"
-                img={require('../assets/assetsF/Icon/promo.jpg')}
-              />
-              <MainFeature
-                title="Terlaris"
-                img={require('../assets/assetsF/Icon/star.jpg')}
-              />
-              <MainFeature
-                title="Organik"
-                img={require('../assets/assetsF/Icon/daun.jpg')}
-              />
-              <MainFeature
-                title="Ijo-Ijo"
-                img={require('../assets/assetsF/Icon/ijo-ijo.jpg')}
-              />
-              {/* 3 */}
-              <MainFeature
-                title="Grosir"
-                img={require('../assets/assetsF/Icon/grosir.jpg')}
-              />
-              <MainFeature
-                title="Siap Santap"
-                img={require('../assets/assetsF/Icon/siapsantap.jpg')}
-              />
-              <MainFeature
-                title="Bumbu Dapur"
-                img={require('../assets/assetsF/Icon/bumbudapur.jpg')}
-              />
-              <MainFeature
-                title="Protein"
-                img={require('../assets/assetsF/Icon/protein.jpg')}
-              />
-              {/* 4 */}
-              <MainFeature
-                title="Susu dan Telur"
-                img={require('../assets/assetsF/Icon/susutelor.jpg')}
               />
             </View>
           </View>

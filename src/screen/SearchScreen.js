@@ -67,7 +67,7 @@ class SearchScreen extends Component {
             flexWrap: 'wrap',
           }}>
           {/* insert Product as Category*/}
-          {this.props?.product?.loading ? (
+          {/* {this.props?.product?.loading ? (
             <Text>Loading..</Text>
           ) : (
             this.props.product.data.data.data.map((value, i) => (
@@ -81,11 +81,11 @@ class SearchScreen extends Component {
                   marginVertical: 1,
                 }}>
                 <MainContent
-                  img={`http://192.168.43.94:5000/product/${value.image}`}
+                img={`http://192.168.43.94:5000/product/${value.image}`}
                 />
               </View>
             ))
-          )}
+          )} */}
         </View>
       </View>
     );
