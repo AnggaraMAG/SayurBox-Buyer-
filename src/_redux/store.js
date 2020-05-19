@@ -6,7 +6,6 @@ import product from '../_reducers/product';
 
 const rootReducers = combineReducers({
   categories,
-  auth,
   product,
 });
 

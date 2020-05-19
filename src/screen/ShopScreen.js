@@ -7,9 +7,6 @@ import {
   Image,
   TextInput,
 } from 'react-native';
-import {connect} from 'react-redux';
-import {get_category} from '../_actions/categories';
-
 import ImageSlider from 'react-native-image-slider';
 import {Icon} from 'native-base';
 
@@ -23,11 +20,7 @@ import Colors from './../components/componentAz/color/color';
 import SeeAll from '../components/componentAz/organism/shopScreen/seeAll/seeAll';
 
 class ShopScreen extends Component {
-  componentDidMount() {
-    this.props.get_category();
-  }
   render() {
-    console.log(this.props.categories, 'woi');
     return (
       <View style={{flex: 1, backgroundColor: Colors.WHITE}}>
         <StatusBar barStyle="dark-content" backgroundColor="white" />
@@ -133,19 +126,25 @@ class ShopScreen extends Component {
               }}>
               {/* 1 */}
               {/* <TouchableOpacity> */}
-              {this.props?.categories?.loading ? (
-                <Text>Loading..</Text>
-              ) : (
-                this.props?.categories?.data.map(val => (
-                  <MainFeature
-                    onPress={() =>
-                      this.props.navigation.navigate('SearchScreen', 'Sayuran')
-                    }
-                    title="Sayuran"
-                    img={require('../assets/assetsF/Icon/wortel.png')}
-                  />
-                ))
-              )}
+              <MainFeature
+                onPress={() =>
+                  this.props.navigation.navigate('SearchScreen', 'Sayuran')
+                }
+                title="Sayuran"
+                img={require('../assets/assetsF/Icon/wortel.png')}
+              />
+              {/* </TouchableOpacity> */}
+              <MainFeature
+                onPress={() =>
+                  this.props.navigation.navigate('SearchScreen', 'Buah-Buahan')
+                }
+                title="Buah Segar"
+                img={require('../assets/assetsF/Icon/alpukat.png')}
+              />
+              <MainFeature
+                title="Paket"
+                img={require('../assets/assetsF/Icon/gandum.png')}
+              />
             </View>
           </View>
           {/* End Feature */}
@@ -1211,19 +1210,4 @@ class ShopScreen extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    categories: state.categories,
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    get_category: () => dispatch(get_category()),
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(ShopScreen);
+export default ShopScreen;

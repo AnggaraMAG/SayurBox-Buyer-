@@ -17,7 +17,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         data: action.payload,
-        loading: true,
+        loading: false,
       };
     case `${GET_CATEGORY}_REJECTED`:
       return {
