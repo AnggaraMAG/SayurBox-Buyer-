@@ -7,7 +7,6 @@ export const get_product = () => {
     payload: async () => {
       try {
         const res = await API.get('/product');
-        console.log(res, 'oi lur');
         return res;
       } catch (error) {
         console.log(error);

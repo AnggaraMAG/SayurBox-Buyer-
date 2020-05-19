@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const API = axios.create({
-  baseURL: 'http://192.168.43.94:5000/api',
+  baseURL: 'http://sayur-box.herokuapp.com/api',
 });
 
 export const setAuthToken = token => {
