@@ -1,0 +1,32 @@
+[
+  {
+    "orderNumber": "#SR-9TR60UHM180M-NR",
+    "deliveryDate": "Tuesday, 21 Apr 2020",
+    "status": "Pesanan Telah Dibuat",
+    "bill": "23.300"
+  },
+  {
+    "orderNumber": "#SR-9TR60UHM187M-NR",
+    "deliveryDate": "Tuesday, 20 Apr 2020",
+    "status": "Pesanan Telah Dikemas",
+    "bill": "30.300"
+  },
+  {
+    "orderNumber": "#SR-9TR60UHM590M-NR",
+    "deliveryDate": "Tuesday, 18 Apr 2020",
+    "status": "Pesanan Telah Dikirim",
+    "bill": "23.300"
+  },
+  {
+    "orderNumber": "#SR-9TR60UHM480M-NR",
+    "deliveryDate": "Tuesday, 15 Apr 2020",
+    "status": "Pesanan Telah Sampai",
+    "bill": "23.300"
+  },
+  {
+    "orderNumber": "#SR-9TR60UHM090M-NR",
+    "deliveryDate": "Tuesday, 10 Apr 2020",
+    "status": "Pesanan Telah Diterima",
+    "bill": "23.300"
+  }
+]
