@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, Image, ScrollView} from 'react-native';
-import {Header, Input} from 'react-native-elements';
+import {Header, Input, Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
@@ -293,6 +293,26 @@ class Checkout extends Component {
             </View>
           </View>
         </ScrollView>
+        <View
+          style={{
+            backgroundColor: 'white',
+          }}>
+          <View style={{margin: 15, flexDirection: 'row'}}>
+            <View>
+              <Text>Total Pembayaran</Text>
+              <Text
+                style={{color: '#449C45', fontWeight: 'bold', fontSize: 16}}>
+                Rp. 260.000
+              </Text>
+            </View>
+            <Button
+              onPress={() => this.props.navigation.navigate('ValidateScreen')}
+              containerStyle={{marginLeft: 'auto'}}
+              buttonStyle={{backgroundColor: '#449C45', width: 150}}
+              title="Pembayaran"
+            />
+          </View>
+        </View>
       </>
     );
   }
