@@ -22,6 +22,7 @@ import All from './src/components/CekAll';
 import SellerScreen from './src/screen/SellerScreen';
 import LocationScreen from './src/screen/LocationScreen';
 import ValidateScreen from './src/screen/CheckoutScreen';
+import PaymentScreen from './src/screen/PaymentScreen';
 
 const ShopScreenStack = createStackNavigator(
   {
@@ -124,6 +125,9 @@ const CheckoutScreen = createStackNavigator(
     },
     ValidateScreen: {
       screen: ValidateScreen,
+    },
+    PaymentScreen: {
+      screen: PaymentScreen,
     },
   },
   {

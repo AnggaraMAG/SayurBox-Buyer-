@@ -306,7 +306,7 @@ class Checkout extends Component {
               </Text>
             </View>
             <Button
-              onPress={() => this.props.navigation.navigate('ValidateScreen')}
+              onPress={() => this.props.navigation.navigate('PaymentScreen')}
               containerStyle={{marginLeft: 'auto'}}
               buttonStyle={{backgroundColor: '#449C45', width: 150}}
               title="Pembayaran"
