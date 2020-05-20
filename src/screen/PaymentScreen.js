@@ -15,9 +15,7 @@ class Payment extends Component {
           }}
           leftComponent={
             <Icon
-              onPress={() =>
-                this.props.navigation.navigate('BottomTabNavigator')
-              }
+              onPress={() => this.props.navigation.goBack()}
               name="chevron-left"
               size={24}
               style={{marginRight: 10}}
