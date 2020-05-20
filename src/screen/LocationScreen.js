@@ -144,7 +144,7 @@ class Location extends Component {
               placeholder="Lengkapi No Rumah, Blok, RT/RW"
             />
             <Button
-              onPress={() => this.props.navigation.navigate('CheckoutScreen')}
+              onPress={() => this.props.navigation.navigate('ValidateScreen')}
               containerStyle={{marginTop: 35, marginHorizontal: 10}}
               buttonStyle={{backgroundColor: '#449C45'}}
               title="Lanjut Checkout"

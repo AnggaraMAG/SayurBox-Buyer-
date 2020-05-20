@@ -21,6 +21,7 @@ import DetailProduct from './src/components/DetailProduct';
 import All from './src/components/CekAll';
 import SellerScreen from './src/screen/SellerScreen';
 import LocationScreen from './src/screen/LocationScreen';
+import ValidateScreen from './src/screen/CheckoutScreen';
 
 const ShopScreenStack = createStackNavigator(
   {
@@ -120,6 +121,9 @@ const CheckoutScreen = createStackNavigator(
   {
     LocationScreen: {
       screen: LocationScreen,
+    },
+    ValidateScreen: {
+      screen: ValidateScreen,
     },
   },
   {
