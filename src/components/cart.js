@@ -53,6 +53,7 @@ class Cart extends Component {
           </TouchableOpacity>
           <View style={{marginLeft: 'auto', marginRight: 10}}>
             <Button
+              onPress={() => this.props.navigation.navigate('CheckoutScreen')}
               buttonStyle={{height: 30, backgroundColor: '#449C45'}}
               title="Checkout"
             />
@@ -93,6 +94,7 @@ class Cart extends Component {
             </View>
             <View style={{marginLeft: 'auto', marginRight: 10}}>
               <Button
+                onPress={() => this.props.navigation.navigate('CheckoutScreen')}
                 buttonStyle={{height: 30, backgroundColor: '#449C45'}}
                 title="Checkout"
               />

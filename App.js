@@ -20,6 +20,7 @@ import DetailOrder from './src/components/componentAz/screen/myOrderDetail/myOrd
 import DetailProduct from './src/components/DetailProduct';
 import All from './src/components/CekAll';
 import SellerScreen from './src/screen/SellerScreen';
+import LocationScreen from './src/screen/LocationScreen';
 
 const ShopScreenStack = createStackNavigator(
   {
@@ -115,7 +116,18 @@ const SellerScreenStack = createStackNavigator(
   },
 );
 
-const Router = createBottomTabNavigator(
+const CheckoutScreen = createStackNavigator(
+  {
+    LocationScreen: {
+      screen: LocationScreen,
+    },
+  },
+  {
+    headerMode: 'none',
+  },
+);
+
+const BottomTabNavigator = createBottomTabNavigator(
   {
     ShopScreen: ShopScreenStack,
     OrderScreen: OrderScreenStack,
@@ -131,6 +143,20 @@ const Router = createBottomTabNavigator(
     },
   },
   {initialRouteName: 'ShopScreen'},
+);
+
+const Router = createStackNavigator(
+  {
+    BottomTabNavigator: {
+      screen: BottomTabNavigator,
+    },
+    CheckoutScreen: {
+      screen: CheckoutScreen,
+    },
+  },
+  {
+    headerMode: 'none',
+  },
 );
 
 export default createAppContainer(Router);

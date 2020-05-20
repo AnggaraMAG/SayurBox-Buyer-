@@ -1207,7 +1207,7 @@ class ShopScreen extends Component {
           {/* End Garis */}
         </ScrollView>
         {/* <Footers /> */}
-        <Cart />
+        <Cart navigation={this.props.navigation} />
         {/* End Slider */}
       </View>
     );
