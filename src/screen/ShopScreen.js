@@ -18,6 +18,7 @@ import MainLine from '../components/molecules/MainLine/index';
 import BottomSheetOrder from '../components/componentd/BottomSheetOrder';
 import Colors from './../components/componentAz/color/color';
 import SeeAll from '../components/componentAz/organism/shopScreen/seeAll/seeAll';
+import Cart from '../components/cart';
 
 class ShopScreen extends Component {
   render() {
@@ -1206,7 +1207,7 @@ class ShopScreen extends Component {
           {/* End Garis */}
         </ScrollView>
         {/* <Footers /> */}
-
+        <Cart />
         {/* End Slider */}
       </View>
     );
