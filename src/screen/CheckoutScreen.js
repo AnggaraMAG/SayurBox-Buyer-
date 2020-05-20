@@ -126,6 +126,7 @@ class Checkout extends Component {
             </View>
           </View>
           <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('ShopScreen')}
             style={{
               marginTop: 1,
               backgroundColor: 'white',
