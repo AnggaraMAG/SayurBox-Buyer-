@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
-import {ListItem, Badge, Button} from 'react-native-elements';
+import {View, Text, TouchableOpacity, Image} from 'react-native';
+import {Badge, Button} from 'react-native-elements';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+
+//component
+import Counter from './counter';
 
 class Cart extends Component {
   render() {
@@ -98,6 +101,27 @@ class Cart extends Component {
                 buttonStyle={{height: 30, backgroundColor: '#449C45'}}
                 title="Checkout"
               />
+            </View>
+          </View>
+          <View>
+            <View style={{flexDirection: 'row', margin: 10}}>
+              <Image
+                source={{
+                  uri:
+                    'https://cdn1-production-images-kly.akamaized.net/z8IcbR0_U72dfTaN14Xhj0Qc_0s=/640x640/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/1694314/original/037316800_1503982212-067002300_1483451648-Makan-Wortel-Bikin-Sakit-Kuning.jpg',
+                }}
+                style={{width: 70, height: 70}}
+              />
+              <View style={{marginHorizontal: 20}}>
+                <Text style={{fontWeight: 'bold'}}>Wortel (10kg)</Text>
+                <Text
+                  style={{fontWeight: 'bold', marginTop: 'auto', fontSize: 18}}>
+                  Rp. 120.000
+                </Text>
+              </View>
+              <View style={{marginHorizontal: 15}}>
+                <Counter style={{marginLeft: 35}} />
+              </View>
             </View>
           </View>
         </RBSheet>
