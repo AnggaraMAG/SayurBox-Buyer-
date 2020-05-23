@@ -9,11 +9,26 @@ import {
   Body,
   Right,
   Title,
+  Radio
 } from 'native-base';
 
 import Colors from '../../../color/color';
 
 export default class passwordSection extends Component {
+  constructor() {
+    super();
+    this.state = {
+      showPwd: true,
+      isSelected: false
+    };
+  }
+
+  radioShow = () => {
+    this.setState({
+      isSelected: !this.state.isSelected,
+      showPwd: !this.state.showPwd
+    });
+  };
   render() {
     return (
       <Container>
@@ -35,14 +50,38 @@ export default class passwordSection extends Component {
         <View style={styles.container}>
           <Text>
             Silahkan masukan password anda untuk menyelesaikan proses
-            Registrasi. Email anda Azizaqibs@gmail.com telah valid
+            Registrasi. Email anda telah berhasil diverifikasi.
           </Text>
           <Text style={styles.title}>Password</Text>
           <TextInput
             style={styles.input}
             placeholder="Password"
-            secureTextEntry={true}
+            secureTextEntry={this.state.showPwd}
           />
+          <Text style={styles.title}>Ulangi Password</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Ulangi Password"
+            secureTextEntry={this.state.showPwd}
+          />
+          <View
+              style={{
+                marginRight: 'auto',
+                flexDirection: 'row',
+                marginBottom: 10
+              }}>
+              <View>
+                <Radio
+                  selectedColor={Colors.PRIMARY}
+                  color={Colors.PRIMARY}
+                  onPress={this.radioShow}
+                  selected={this.state.isSelected}
+                />
+              </View>
+              <View style={{marginTop: 5, marginLeft: 5}}>
+                <Text>Show Password</Text>
+              </View>
+            </View>
           <Button
             success
             style={{width: '100%', alignSelf: 'center'}}
@@ -85,7 +124,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderWidth: 1,
     alignSelf: 'center',
-    marginBottom: 15,
+    marginBottom: 5,
     backgroundColor: '#fff',
     paddingLeft: 25,
   },

@@ -22,7 +22,7 @@ export default class BottomSheetOrder extends Component {
                     fontSize: 18,
                     fontWeight: 'bold',
                   }}>
-                  Jabodetabek -{' '}
+                  Bandung -{' '}
                 </Text>
                 <Text
                   style={{
@@ -30,7 +30,7 @@ export default class BottomSheetOrder extends Component {
                     fontSize: 18,
                     fontWeight: 'bold',
                   }}>
-                  Kamis, 16 April 2020
+                  Sabtu, 23 Mei 2020
                 </Text>
                 <Image
                   style={{
@@ -88,6 +88,7 @@ export default class BottomSheetOrder extends Component {
                 {label: 'Depok', value: 'Depok'},
                 {label: 'Tanggerang', value: 'Tanggerang'},
                 {label: 'Bekasi', value: 'Bekasi'},
+                {label: 'Bandung', value: 'Bandung'}
               ]}
               Icon={() => {
                 return (
@@ -110,7 +111,7 @@ export default class BottomSheetOrder extends Component {
               }}>
               Pilih Tanggal Pengiriman
             </Text>
-            <View style={{flex: 1, flexDirection: 'row'}}>
+            <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
               <View
                 style={{
                   width: 80,
@@ -141,7 +142,7 @@ export default class BottomSheetOrder extends Component {
                       color: 'green',
                       marginLeft: 20,
                     }}>
-                    22 April
+                    20 Mei
                   </Text>
                 </TouchableOpacity>
               </View>
@@ -167,7 +168,7 @@ export default class BottomSheetOrder extends Component {
                       color: 'green',
                       marginLeft: 25,
                     }}>
-                    Kamis
+                    Sabtu
                   </Text>
                   <Text
                     style={{
@@ -176,42 +177,7 @@ export default class BottomSheetOrder extends Component {
                       color: 'green',
                       marginLeft: 20,
                     }}>
-                    24 April
-                  </Text>
-                </TouchableOpacity>
-              </View>
-              <View
-                style={{
-                  width: 80,
-                  height: 80,
-                  marginTop: 15,
-                  marginLeft: 25,
-                  borderWidth: 1,
-                  borderRadius: 12,
-                  borderColor: '#DAE0E2',
-                }}>
-                <TouchableOpacity>
-                  <Image
-                    source={require('../../assets/images/iconcalendar.png')}
-                    style={{marginLeft: 25, marginTop: 5}}
-                  />
-                  <Text
-                    style={{
-                      fontSize: 12,
-                      fontFamily: 'Roboto',
-                      color: 'green',
-                      marginLeft: 25,
-                    }}>
-                    Jumat
-                  </Text>
-                  <Text
-                    style={{
-                      fontSize: 12,
-                      fontFamily: 'Roboto',
-                      color: 'green',
-                      marginLeft: 20,
-                    }}>
-                    24 April
+                    23 Mei
                   </Text>
                 </TouchableOpacity>
               </View>

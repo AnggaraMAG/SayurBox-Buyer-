@@ -51,6 +51,11 @@ class DetailProduct extends Component {
               <View style={{flexDirection: 'row'}}>
                 <Text style={{color: Colors.FONT_PRIM}}>/200 gram</Text>
               </View>
+              <View style={{flexDirection: 'row'}}>
+                <Text style={{color: Colors.FONT_PRIM}}>Stok: </Text>
+                <Text style={{color: 'green'}}>2000 </Text>
+                <Text>(Buah)</Text>
+              </View>
             </View>
             <View style={{flex: 1, alignItems: 'flex-end', marginBottom: 10}}>
               <Button style={{height: 30, width: 120}} success>
@@ -100,7 +105,7 @@ class DetailProduct extends Component {
           {/* End Garis */}
           {/* 3 */}
           <View style={{marginTop: 10, marginHorizontal: 15}}>
-            <View
+            {/* <View
               style={{
                 height: 30,
                 width: 90,
@@ -119,7 +124,7 @@ class DetailProduct extends Component {
                 }}>
                 Conventional
               </Text>
-            </View>
+            </View> */}
             <Text
               style={{
                 fontWeight: '800',
@@ -136,8 +141,9 @@ class DetailProduct extends Component {
               type and scrambled it to make a type specimen book.
             </Text>
           </View>
+          
           {/* Tabs */}
-          <View style={{marginTop: 25}}>
+          {/* //Small Info runs here. <View style={{marginTop: 25}}>
             <Tabs
               tabBarUnderlineStyle={{
                 backgroundColor: 'green',
@@ -208,9 +214,10 @@ class DetailProduct extends Component {
                 </View>
               </Tab>
             </Tabs>
-          </View>
+          </View> */}
           {/* End Tabs */}
-          <View style={{marginTop: 25, marginLeft: 15}}>
+          {/* <View style={{marginTop: 25, marginLeft: 15}}>
+            <Separator/>
             <Text style={{fontWeight: '800', fontSize: 15, color: '#576357'}}>
               About The Producers
             </Text>
@@ -240,9 +247,7 @@ class DetailProduct extends Component {
               </Text>
             </View>
           </View>
-          {/* Garis */}
           <Separator />
-          {/* End Garis */}
           <View style={{marginVertical: 15, marginLeft: 15}}>
             <Text
               style={{
@@ -252,10 +257,8 @@ class DetailProduct extends Component {
               }}>
               This producer has no description
             </Text>
-          </View>
-          {/* Garis */}
+          </View> */}
           <Separator />
-          {/* End Garis */}
           <View style={{marginLeft: 15}}>
             <View style={{marginVertical: 15}}>
               <Text
