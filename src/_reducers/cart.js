@@ -7,7 +7,7 @@ const reducer = (state = initialState, action) => {
     case `ADD_ITEM`:
       return {
         ...state,
-        data: data.push(action.payload),
+        data: action.payload,
       };
     default:
       return state;

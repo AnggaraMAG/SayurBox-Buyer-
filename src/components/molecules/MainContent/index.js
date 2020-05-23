@@ -92,6 +92,7 @@ class MainContent extends React.Component {
           </View>
 
           <Button
+            onPress={this.props.buy}
             style={{
               alignItems: 'center',
               height: 30,

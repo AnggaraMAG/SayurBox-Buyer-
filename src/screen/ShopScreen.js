@@ -9,6 +9,13 @@ import {
 } from 'react-native';
 import ImageSlider from 'react-native-image-slider';
 import {Icon} from 'native-base';
+import {connect} from 'react-redux';
+import {add_item} from '../_actions/cart';
+
+//image
+import apel from '../assets/assetsF/Spesial/apel.jpg';
+import sereh from '../assets/assetsF/Spesial/sereh.jpg';
+import kiwi from '../assets/assetsF/Spesial/kiwi.jpg';
 
 import Separator from './../components/componentAz/organism/separator/separator';
 import MainFeature from '../components/molecules/MainFeature/index';
@@ -20,8 +27,46 @@ import Colors from './../components/componentAz/color/color';
 import SeeAll from '../components/componentAz/organism/shopScreen/seeAll/seeAll';
 import Cart from '../components/cart';
 
+const item_list = [
+  {
+    img: kiwi,
+    buah: 'Kiwi',
+    bentuk: '4 pcs',
+    satuan1: 'kg',
+    harga: 25500,
+    satuan: 'kg',
+  },
+  {
+    img: apel,
+    buah: 'Apel',
+    bentuk: '5 pcs',
+    satuan1: 'kg',
+    harga: 20500,
+    satuan: 'kg',
+  },
+  {
+    img: sereh,
+    buah: 'Sereh',
+    bentuk: '5 pcs',
+    satuan1: 'kg',
+    harga: 22000,
+    satuan: 'kg',
+  },
+];
+
 class ShopScreen extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      items: this.props.cart.data,
+    };
+  }
+  componentDidMount() {
+    this.props.cart;
+  }
   render() {
+    const items = this.props.cart.data;
+    console.log(items.length);
     return (
       <View style={{flex: 1, backgroundColor: Colors.WHITE}}>
         <StatusBar barStyle="dark-content" backgroundColor="white" />
@@ -199,66 +244,29 @@ class ShopScreen extends Component {
             {/* End Garis */}
             <View style={{flex: 3, marginTop: 5}}>
               <ScrollView horizontal>
-                <MainContent
-                  img={require('../assets/assetsF/Spesial/kiwi.jpg')}
-                  buah="Kiwi"
-                  bentuk="4 pcs"
-                  satuan1="kg"
-                  harga="25.500"
-                  satuan="kg"
-                  toDetail={() =>
-                    this.props.navigation.navigate('DetailProduct', {
-                      id: 1,
-                      name: 'kiwi',
-                    })
-                  }
-                />
-                <MainContent
-                  img={require('../assets/assetsF/Spesial/apel.jpg')}
-                  buah="Apel"
-                  bentuk="5 pcs"
-                  satuan1="kg"
-                  harga="20.000"
-                  satuan="kg"
-                />
-                <MainContent
-                  img={require('../assets/assetsF/Spesial/paketperak.jpg')}
-                  buah="Tiket Donasi"
-                  bentuk="5 pcs"
-                  satuan1="kg"
-                  harga="25.000"
-                  satuan="pcs"
-                />
-                <MainContent
-                  img={require('../assets/assetsF/Spesial/paketemas.jpg')}
-                  buah="Tiket Donasi"
-                  bentuk="5 pcs"
-                  satuan1="kg"
-                  harga="50.000"
-                  satuan="pcs"
-                />
-                <MainContent
-                  img={require('../assets/assetsF/Spesial/paketperunggu.jpg')}
-                  buah="Tiket Donasi"
-                  bentuk="5 pcs"
-                  satuan1="kg"
-                  harga="20.000"
-                  satuan="pcs"
-                />
-                <MainContent
-                  img={require('../assets/assetsF/Spesial/rasberry.jpg')}
-                  buah="Rasberry"
-                  harga="30.000"
-                  satuan="kg"
-                />
-                <MainContent
-                  img={require('../assets/assetsF/Spesial/sereh.jpg')}
-                  buah="Sereh"
-                  bentuk="5 pcs"
-                  satuan1="kg"
-                  harga="45.000"
-                  satuan="kg"
-                />
+                {item_list.map((val, id) => (
+                  <MainContent
+                    key={id}
+                    img={val.img}
+                    buah={val.buah}
+                    bentuk={val.bentuk}
+                    satuan1={val.satuan1}
+                    harga={val.harga}
+                    satuan={val.satuan}
+                    toDetail={() =>
+                      this.props.navigation.navigate('DetailProduct', {
+                        id: 1,
+                        name: 'kiwi',
+                      })
+                    }
+                    buy={() => {
+                      add_item(items, val);
+                      this.setState({
+                        items: items,
+                      });
+                    }}
+                  />
+                ))}
               </ScrollView>
             </View>
           </View>
@@ -1207,11 +1215,32 @@ class ShopScreen extends Component {
           {/* End Garis */}
         </ScrollView>
         {/* <Footers /> */}
-        <Cart navigation={this.props.navigation} />
+        {this.state.items.length === 0 ? null : (
+          <Cart
+            key={this.state.items}
+            items={this.state.items}
+            navigation={this.props.navigation}
+          />
+        )}
         {/* End Slider */}
       </View>
     );
   }
 }
 
-export default ShopScreen;
+const mapStateToProps = state => {
+  return {
+    cart: state.cart,
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    add_item: (pervData, data) => dispatch(add_item(pervData, data)),
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ShopScreen);

@@ -1,8 +1,10 @@
-export const add_item = data => {
+export const add_item = (prevData, data) => {
+  prevData.push(data);
   return {
     type: 'ADD_ITEM',
     payload: () => {
-      return data;
+      let newData = prevData;
+      return newData;
     },
   };
 };
