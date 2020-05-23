@@ -12,6 +12,7 @@ import {
 } from 'native-base';
 
 import Colors from '../../../color/color';
+import { colors } from 'react-native-elements';
 
 export default class register extends Component {
   render() {
@@ -38,16 +39,20 @@ export default class register extends Component {
             Anda
           </Text>
           <View>
-            <Text style={styles.title}>Email</Text>
-            <TextInput style={styles.input} placeholder="me@email.com" />
+            <Text style={styles.title}>Nama</Text>
+            <TextInput style={styles.input} placeholder="John Doe" />
           </View>
           <View>
-            <Text style={styles.title}>Password</Text>
-            <TextInput
-              secureTextEntry
-              style={styles.input}
-              placeholder="******"
-            />
+            <Text style={styles.title}>No Telepon</Text>
+            <TextInput keyboardType={"numeric"} style={styles.input} placeholder="+62" />
+          </View>
+          <View>
+            <Text style={styles.title}>Email</Text>
+            <TextInput style={styles.input} placeholder="johndoe@email.com" />
+          </View>
+          <View>
+            <Text style={styles.title}>Alamat</Text>
+            <TextInput multiline style={styles.input2} placeholder="Jalan Keluarga RT/RW" />
           </View>
           <Button
             success
@@ -62,9 +67,35 @@ export default class register extends Component {
                 fontWeight: 'bold',
                 color: 'white',
               }}>
-              Daftar Sekarang
+              Selanjutnya
             </Text>
           </Button>
+          <View style={{marginLeft:  5, marginTop: 20, flexDirection: 'row'}}>
+              <Text style={{color: Colors.FONT_PRIM, marginTop: 5}}>
+                Sudah Punya Akun ?
+              </Text>
+              <Button
+                bordered
+                success
+                onPress={() =>
+                  this.props.navigation.navigate('ToLoginForm')
+                }
+                style={{
+                  marginLeft: 'auto',
+                  width: 80,
+                  height: 30,
+                }}>
+                <Text
+                  style={{
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                    color: Colors.PRIMARY,
+                    fontWeight: 'bold',
+                  }}>
+                  Masuk
+                </Text>
+              </Button>
+            </View>
         </View>
       </Container>
     );
@@ -106,4 +137,22 @@ const styles = StyleSheet.create({
     color: Colors.PRIMARY,
     marginLeft: 5,
   },
+  title2: {
+    marginBottom: 5,
+    fontWeight: 'bold',
+    color: Colors.PRIMARY,
+    marginLeft: 5,
+    justifyContent: 'center'
+  },
+  input2: {
+    width: '100%',
+    height: 55,
+    borderColor: Colors.FONT_SEC,
+    borderRadius: 5,
+    borderWidth: 1,
+    alignSelf: 'center',
+    marginBottom: 15,
+    backgroundColor: '#fff',
+    paddingLeft: 25,
+  }
 });

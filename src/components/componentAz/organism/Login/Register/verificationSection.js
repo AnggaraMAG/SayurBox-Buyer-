@@ -34,8 +34,8 @@ export default class verificationSection extends Component {
         </Header>
         <View style={styles.container}>
           <Text>
-            Sayurbox telah mengirimkan email ke [ Azizaqibs@gmail.com ],
-            Silahkan masukan kode verifikasi yang ada di dalam email
+            SayurKita telah mengirimkan kode verifikasi ke alamat email yang anda berikan,
+            Silahkan masukan kode tersebut.
           </Text>
           <Text style={styles.title}>Masukan Kode Verifikasi</Text>
           <TextInput style={styles.input} placeholder="Verification Code" />

@@ -53,7 +53,7 @@ class Footers extends Component {
 
             <Text style={styles.text}>My Order</Text>
           </Button>
-          <Button
+          {/* <Button
             vertical
             onPress={() => {
               this.setState({
@@ -68,7 +68,7 @@ class Footers extends Component {
               size={23}
             />
             <Text style={styles.text}>Inbox</Text>
-          </Button>
+          </Button> */}
           <Button
             vertical
             onPress={() => {

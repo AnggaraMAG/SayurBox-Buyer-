@@ -18,13 +18,15 @@ export default class loginForm extends Component {
   constructor() {
     super();
     this.state = {
-      isSelected: false,
+      showPwd: true,
+      isSelected: false
     };
   }
 
-  handleSelect = () => {
+  radioShow = () => {
     this.setState({
       isSelected: !this.state.isSelected,
+      showPwd: !this.state.showPwd
     });
   };
 
@@ -53,7 +55,7 @@ export default class loginForm extends Component {
             <Text style={styles.title}>Email</Text>
             <TextInput style={styles.input} placeholder="me@email.com" />
             <Text style={styles.title}>Password</Text>
-            <TextInput style={styles.input} secureTextEntry={true} />
+            <TextInput style={styles.input} secureTextEntry={this.state.showPwd} />
             <View
               style={{
                 marginRight: 'auto',
@@ -65,7 +67,7 @@ export default class loginForm extends Component {
                 <Radio
                   selectedColor={Colors.PRIMARY}
                   color={Colors.PRIMARY}
-                  onPress={this.handleSelect}
+                  onPress={this.radioShow}
                   selected={this.state.isSelected}
                 />
               </View>
