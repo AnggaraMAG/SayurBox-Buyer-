@@ -16,6 +16,29 @@ class Cart extends Component {
     };
   }
 
+  calculatePrice = () => {
+    let calculated = this.state.items.reduce((acc, cur) => acc + cur.harga, 0);
+    let result = '';
+    let flag = 1;
+    for (let i = String(calculated).length - 1; i >= 0; i--) {
+      if (flag === 3) {
+        result += String(calculated)[i];
+        result += '.';
+        flag = 1;
+      } else {
+        result += String(calculated)[i];
+        flag++;
+      }
+    }
+    return (
+      'Rp ' +
+      result
+        .split('')
+        .reverse()
+        .join('')
+    );
+  };
+
   render() {
     return (
       <>
@@ -42,7 +65,9 @@ class Cart extends Component {
             />
           </View>
           <View style={{marginLeft: 30, paddingLeft: 10}}>
-            <Text style={{fontWeight: 'bold', color: '#449C45'}}>240.000</Text>
+            <Text style={{fontWeight: 'bold', color: '#449C45'}}>
+              {this.calculatePrice()}
+            </Text>
           </View>
           <TouchableOpacity
             onPress={() => this.RBSheet.open()}
@@ -99,7 +124,7 @@ class Cart extends Component {
             </View>
             <View style={{marginLeft: 30, paddingLeft: 10}}>
               <Text style={{fontWeight: 'bold', color: '#449C45'}}>
-                240.000
+                {this.calculatePrice()}
               </Text>
             </View>
             <View style={{marginLeft: 'auto', marginRight: 10}}>
