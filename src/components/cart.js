@@ -4,6 +4,7 @@ import {Badge, Button} from 'react-native-elements';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {connect} from 'react-redux';
+import {remove_item} from '../_actions/cart';
 
 //component
 import Counter from './counter';
@@ -57,6 +58,23 @@ class Cart extends Component {
       ),
     }));
   };
+
+  getSnapshotBeforeUpdate() {
+    let filteredItems = this.state.items.filter(val => val.total > 0);
+    console.log(this.props.cart.data, 'anjay mabar');
+    if (filteredItems.length !== this.props.cart.data.length) {
+      // console.log(filteredItems.length, prevState.items.length, 'anjing');
+      console.log('anjing mabar goblok');
+      return filteredItems;
+    }
+    return null;
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (snapshot !== null) {
+      this.props.remove_item(snapshot);
+    }
+  }
 
   render() {
     return (
@@ -179,7 +197,9 @@ class Cart extends Component {
                   <View style={{marginLeft: 'auto', marginRight: 10}}>
                     <Counter
                       increment={this.increment}
+                      decrement={this.decrement}
                       key={id}
+                      id={id}
                       total={val.total}
                     />
                   </View>
@@ -199,4 +219,13 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Cart);
+const mapDispatchToProps = dispatch => {
+  return {
+    remove_item: newData => dispatch(remove_item(newData)),
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Cart);

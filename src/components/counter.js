@@ -8,6 +8,7 @@ class Counter extends Component {
       <View style={this.props.style}>
         <View style={{flexDirection: 'row'}}>
           <TouchableOpacity
+            onPress={() => this.props.decrement(this.props.id)}
             style={{
               borderRadius: 100,
               borderWidth: 1,
@@ -25,6 +26,7 @@ class Counter extends Component {
             <Text style={{fontSize: 22}}>{this.props.total}</Text>
           </View>
           <TouchableOpacity
+            onPress={() => this.props.increment(this.props.id)}
             style={{
               borderRadius: 100,
               borderWidth: 1,

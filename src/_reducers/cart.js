@@ -4,7 +4,12 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case `ADD_ITEM`:
+    case 'ADD_ITEM':
+      return {
+        ...state,
+        data: action.payload,
+      };
+    case 'REMOVE_ITEM':
       return {
         ...state,
         data: action.payload,

@@ -8,3 +8,10 @@ export const add_item = (prevData, data) => {
     },
   };
 };
+
+export const remove_item = newData => {
+  return {
+    type: 'REMOVE_ITEM',
+    payload: () => newData,
+  };
+};

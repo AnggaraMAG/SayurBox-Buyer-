@@ -64,12 +64,28 @@ class ShopScreen extends Component {
       items: this.props.cart.data,
     };
   }
-  componentDidMount() {
-    this.props.cart;
+
+  getSnapshotBeforeUpdate() {
+    let filteredItems = this.state.items.filter(val => val.total > 0);
+    console.log(this.props.cart.data, 'anjay mabar');
+    if (filteredItems.length !== this.props.cart.data.length) {
+      console.log('anjing mabar goblok');
+      return filteredItems;
+    }
+    return null;
   }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (snapshot !== null) {
+      this.setState({
+        items: this.props.cart.data,
+      });
+    }
+  }
+
   render() {
     const items = this.props.cart.data;
-    console.log(items.length);
+    console.log(items, 'woi ajg');
     return (
       <View style={{flex: 1, backgroundColor: Colors.WHITE}}>
         <StatusBar barStyle="dark-content" backgroundColor="white" />
@@ -263,7 +279,7 @@ class ShopScreen extends Component {
                       })
                     }
                     buy={() => {
-                      add_item(items, val);
+                      this.props.add_item(items, val);
                       this.setState({
                         items: items,
                       });
