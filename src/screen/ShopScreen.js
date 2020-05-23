@@ -35,6 +35,7 @@ const item_list = [
     satuan1: 'kg',
     harga: 25500,
     satuan: 'kg',
+    total: 1,
   },
   {
     img: apel,
@@ -43,6 +44,7 @@ const item_list = [
     satuan1: 'kg',
     harga: 20500,
     satuan: 'kg',
+    total: 1,
   },
   {
     img: sereh,
@@ -51,6 +53,7 @@ const item_list = [
     satuan1: 'kg',
     harga: 22000,
     satuan: 'kg',
+    total: 1,
   },
 ];
 

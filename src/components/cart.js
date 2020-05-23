@@ -17,7 +17,10 @@ class Cart extends Component {
   }
 
   calculatePrice = () => {
-    let calculated = this.state.items.reduce((acc, cur) => acc + cur.harga, 0);
+    let calculated = this.state.items.reduce(
+      (acc, cur) => acc + cur.harga * cur.total,
+      0,
+    );
     let result = '';
     let flag = 1;
     for (let i = String(calculated).length - 1; i >= 0; i--) {
@@ -37,6 +40,22 @@ class Cart extends Component {
         .reverse()
         .join('')
     );
+  };
+
+  increment = id => {
+    this.setState(prevState => ({
+      items: prevState.items.map((obj, i) =>
+        i === id ? {...obj, total: obj.total + 1} : obj,
+      ),
+    }));
+  };
+
+  decrement = id => {
+    this.setState(prevState => ({
+      items: prevState.items.map((obj, i) =>
+        i === id ? {...obj, total: obj.total - 1} : obj,
+      ),
+    }));
   };
 
   render() {
@@ -158,7 +177,11 @@ class Cart extends Component {
                     </Text>
                   </View>
                   <View style={{marginLeft: 'auto', marginRight: 10}}>
-                    <Counter />
+                    <Counter
+                      increment={this.increment}
+                      key={id}
+                      total={val.total}
+                    />
                   </View>
                 </View>
               ))}

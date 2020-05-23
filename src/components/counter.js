@@ -22,7 +22,7 @@ class Counter extends Component {
             />
           </TouchableOpacity>
           <View style={{marginHorizontal: 20}}>
-            <Text style={{fontSize: 22}}>1</Text>
+            <Text style={{fontSize: 22}}>{this.props.total}</Text>
           </View>
           <TouchableOpacity
             style={{
