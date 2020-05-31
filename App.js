@@ -83,7 +83,7 @@ const ChatScreenStack = createStackNavigator(
 const LoginScreenStack = createStackNavigator(
   {
     LoginScreen: {
-      screen: LoginScreen,
+      screen: ToRegisterEmailForm,
     },
     ToLoginForm: {
       screen: ToLoginForm,
