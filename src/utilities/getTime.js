@@ -1,13 +1,13 @@
 getTime = () => {
   const date = new Date();
   const days = [
+    'Minggu',
     'Senin',
     'Selasa',
     'Rabu',
     'Kamis',
     "Jum'at",
     'Sabtu',
-    'Minggu',
   ];
   const months = [
     'Januari',
