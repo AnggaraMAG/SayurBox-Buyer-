@@ -4,81 +4,10 @@ import RBSheet from 'react-native-raw-bottom-sheet';
 import RNPickerSelect from 'react-native-picker-select';
 import {Icon} from 'react-native-elements';
 
-export default class BottomSheetOrder extends Component {
-  getTime = () => {
-    const date = new Date();
-    let month = '';
-    let day = '';
-    switch (date.getMonth()) {
-      case 0:
-        month = 'Januari';
-        break;
-      case 1:
-        month = 'Februari';
-        break;
-      case 2:
-        month = 'Maret';
-        break;
-      case 3:
-        month = 'April';
-        break;
-      case 4:
-        month = 'May';
-        break;
-      case 5:
-        month = 'Juni';
-        break;
-      case 6:
-        month = 'Juli';
-        break;
-      case 7:
-        month = 'Agustus';
-        break;
-      case 8:
-        month = 'September';
-        break;
-      case 9:
-        month = 'Oktober';
-        break;
-      case 10:
-        month = 'November';
-        break;
-      case 11:
-        month = 'Desember';
-        break;
-      default:
-        console.log('error');
-        break;
-    }
+//utilities
+import getTime from '../../utilities/getTime';
 
-    switch (date.getDay()) {
-      case 0:
-        day = 'Senin';
-        break;
-      case 1:
-        day = 'Selasa';
-        break;
-      case 2:
-        day = 'Rabu';
-        break;
-      case 3:
-        day = 'Kamis';
-        break;
-      case 4:
-        day = "Jum'at";
-        break;
-      case 5:
-        day = 'Sabtu';
-        break;
-      case 6:
-        day = 'Minggu';
-        break;
-      default:
-        console.log('error');
-        break;
-    }
-    return `${day}, ${date.getDate()} ${month} ${date.getFullYear()}`;
-  };
+export default class BottomSheetOrder extends Component {
   render() {
     return (
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
@@ -104,7 +33,7 @@ export default class BottomSheetOrder extends Component {
                     fontSize: 18,
                     fontWeight: 'bold',
                   }}>
-                  {this.getTime()}
+                  {getTime()}
                 </Text>
                 <Image
                   style={{
@@ -156,14 +85,7 @@ export default class BottomSheetOrder extends Component {
             }}>
             <RNPickerSelect
               onValueChange={value => console.log(value)}
-              items={[
-                {label: 'DKI Jakarta', value: 'DKI Jakarta'},
-                {label: 'Bogor', value: 'Bogor'},
-                {label: 'Depok', value: 'Depok'},
-                {label: 'Tanggerang', value: 'Tanggerang'},
-                {label: 'Bekasi', value: 'Bekasi'},
-                {label: 'Bandung', value: 'Bandung'},
-              ]}
+              items={[{label: 'Bandung', value: 'Bandung'}]}
               Icon={() => {
                 return (
                   <Icon
