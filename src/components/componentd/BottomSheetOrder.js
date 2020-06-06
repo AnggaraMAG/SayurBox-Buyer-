@@ -9,6 +9,12 @@ import getTime from '../../utilities/getTime';
 import setTimeChooser from '../../utilities/setTImeChooser';
 
 export default class BottomSheetOrder extends Component {
+  defaultSendTime = () => {
+    const date = new Date();
+    return `${setTimeChooser().day1}, ${setTimeChooser().date1} ${
+      setTimeChooser().month1
+    } ${date.getFullYear()}`;
+  };
   render() {
     return (
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
@@ -34,7 +40,7 @@ export default class BottomSheetOrder extends Component {
                     fontSize: 18,
                     fontWeight: 'bold',
                   }}>
-                  {getTime()}
+                  {this.defaultSendTime()}
                 </Text>
                 <Image
                   style={{
