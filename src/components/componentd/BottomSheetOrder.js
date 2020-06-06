@@ -5,6 +5,80 @@ import RNPickerSelect from 'react-native-picker-select';
 import {Icon} from 'react-native-elements';
 
 export default class BottomSheetOrder extends Component {
+  getTime = () => {
+    const date = new Date();
+    let month = '';
+    let day = '';
+    switch (date.getMonth()) {
+      case 0:
+        month = 'Januari';
+        break;
+      case 1:
+        month = 'Februari';
+        break;
+      case 2:
+        month = 'Maret';
+        break;
+      case 3:
+        month = 'April';
+        break;
+      case 4:
+        month = 'May';
+        break;
+      case 5:
+        month = 'Juni';
+        break;
+      case 6:
+        month = 'Juli';
+        break;
+      case 7:
+        month = 'Agustus';
+        break;
+      case 8:
+        month = 'September';
+        break;
+      case 9:
+        month = 'Oktober';
+        break;
+      case 10:
+        month = 'November';
+        break;
+      case 11:
+        month = 'Desember';
+        break;
+      default:
+        console.log('error');
+        break;
+    }
+
+    switch (date.getDay()) {
+      case 0:
+        day = 'Senin';
+        break;
+      case 1:
+        day = 'Selasa';
+        break;
+      case 2:
+        day = 'Rabu';
+        break;
+      case 3:
+        day = 'Kamis';
+        break;
+      case 4:
+        day = "Jum'at";
+        break;
+      case 5:
+        day = 'Sabtu';
+        break;
+      case 6:
+        day = 'Minggu';
+        break;
+      default:
+        console.log('error');
+        break;
+    }
+    return `${day}, ${date.getDate()} ${month} ${date.getFullYear()}`;
+  };
   render() {
     return (
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
@@ -30,7 +104,7 @@ export default class BottomSheetOrder extends Component {
                     fontSize: 18,
                     fontWeight: 'bold',
                   }}>
-                  Sabtu, 23 Mei 2020
+                  {this.getTime()}
                 </Text>
                 <Image
                   style={{
@@ -88,7 +162,7 @@ export default class BottomSheetOrder extends Component {
                 {label: 'Depok', value: 'Depok'},
                 {label: 'Tanggerang', value: 'Tanggerang'},
                 {label: 'Bekasi', value: 'Bekasi'},
-                {label: 'Bandung', value: 'Bandung'}
+                {label: 'Bandung', value: 'Bandung'},
               ]}
               Icon={() => {
                 return (
@@ -111,7 +185,8 @@ export default class BottomSheetOrder extends Component {
               }}>
               Pilih Tanggal Pengiriman
             </Text>
-            <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
+            <View
+              style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
               <View
                 style={{
                   width: 80,

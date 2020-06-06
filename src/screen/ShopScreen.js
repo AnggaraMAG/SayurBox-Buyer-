@@ -67,9 +67,7 @@ class ShopScreen extends Component {
 
   getSnapshotBeforeUpdate() {
     let filteredItems = this.state.items.filter(val => val.total > 0);
-    console.log(this.props.cart.data, 'anjay mabar');
     if (filteredItems.length !== this.props.cart.data.length) {
-      console.log('anjing mabar goblok');
       return filteredItems;
     }
     return null;
@@ -266,12 +264,14 @@ class ShopScreen extends Component {
                 {item_list.map((val, id) => (
                   <MainContent
                     key={id}
+                    id={id}
                     img={val.img}
                     buah={val.buah}
                     bentuk={val.bentuk}
                     satuan1={val.satuan1}
                     harga={val.harga}
                     satuan={val.satuan}
+                    total={val.total}
                     toDetail={() =>
                       this.props.navigation.navigate('DetailProduct', {
                         id: 1,

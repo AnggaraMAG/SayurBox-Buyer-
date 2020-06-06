@@ -3,7 +3,32 @@ import {View, Image, Text, TouchableOpacity} from 'react-native';
 import {Button} from 'native-base';
 import Colors from './../../componentAz/color/color';
 
+import Counter from '../../counter';
+
 class MainContent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      clicked: false,
+    };
+  }
+
+  increment = id => {
+    this.setState(prevState => ({
+      items: prevState.items.map((obj, i) =>
+        i === id ? {...obj, total: obj.total + 1} : obj,
+      ),
+    }));
+  };
+
+  decrement = id => {
+    this.setState(prevState => ({
+      items: prevState.items.map((obj, i) =>
+        i === id ? {...obj, total: obj.total - 1} : obj,
+      ),
+    }));
+  };
+
   render() {
     return (
       <TouchableOpacity
@@ -91,28 +116,39 @@ class MainContent extends React.Component {
             </View>
           </View>
 
-          <Button
-            onPress={this.props.buy}
-            style={{
-              alignItems: 'center',
-              height: 30,
-              width: '90%',
-              marginTop: 20,
-              marginBottom: 10,
-              elevation: 0,
-              alignSelf: 'center',
-            }}
-            success>
-            <Text
+          {this.state.clicked ? (
+            <Counter
+              increment={this.increment}
+              decrement={this.decrement}
+              id={this.props.id}
+              total={this.props.total}
+            />
+          ) : (
+            <Button
+              onPress={() => {
+                this.props.buy(), this.setState({clicked: true});
+              }}
               style={{
-                marginLeft: 'auto',
-                marginRight: 'auto',
-                fontWeight: 'bold',
-                color: 'white',
-              }}>
-              Beli
-            </Text>
-          </Button>
+                alignItems: 'center',
+                height: 30,
+                width: '90%',
+                marginTop: 20,
+                marginBottom: 10,
+                elevation: 0,
+                alignSelf: 'center',
+              }}
+              success>
+              <Text
+                style={{
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
+                  fontWeight: 'bold',
+                  color: 'white',
+                }}>
+                Beli
+              </Text>
+            </Button>
+          )}
         </View>
       </TouchableOpacity>
     );
