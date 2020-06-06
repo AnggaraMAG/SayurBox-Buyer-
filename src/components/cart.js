@@ -61,10 +61,7 @@ class Cart extends Component {
 
   getSnapshotBeforeUpdate() {
     let filteredItems = this.state.items.filter(val => val.total > 0);
-    console.log(this.props.cart.data, 'anjay mabar');
     if (filteredItems.length !== this.props.cart.data.length) {
-      // console.log(filteredItems.length, prevState.items.length, 'anjing');
-      console.log('anjing mabar goblok');
       return filteredItems;
     }
     return null;

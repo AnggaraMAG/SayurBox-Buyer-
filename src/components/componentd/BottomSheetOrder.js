@@ -4,7 +4,17 @@ import RBSheet from 'react-native-raw-bottom-sheet';
 import RNPickerSelect from 'react-native-picker-select';
 import {Icon} from 'react-native-elements';
 
+//utilities
+import getTime from '../../utilities/getTime';
+import setTimeChooser from '../../utilities/setTImeChooser';
+
 export default class BottomSheetOrder extends Component {
+  defaultSendTime = () => {
+    const date = new Date();
+    return `${setTimeChooser().day1}, ${setTimeChooser().date1} ${
+      setTimeChooser().month1
+    } ${date.getFullYear()}`;
+  };
   render() {
     return (
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
@@ -30,7 +40,7 @@ export default class BottomSheetOrder extends Component {
                     fontSize: 18,
                     fontWeight: 'bold',
                   }}>
-                  Sabtu, 23 Mei 2020
+                  {this.defaultSendTime()}
                 </Text>
                 <Image
                   style={{
@@ -82,14 +92,7 @@ export default class BottomSheetOrder extends Component {
             }}>
             <RNPickerSelect
               onValueChange={value => console.log(value)}
-              items={[
-                {label: 'DKI Jakarta', value: 'DKI Jakarta'},
-                {label: 'Bogor', value: 'Bogor'},
-                {label: 'Depok', value: 'Depok'},
-                {label: 'Tanggerang', value: 'Tanggerang'},
-                {label: 'Bekasi', value: 'Bekasi'},
-                {label: 'Bandung', value: 'Bandung'}
-              ]}
+              items={[{label: 'Bandung', value: 'Bandung'}]}
               Icon={() => {
                 return (
                   <Icon
@@ -111,7 +114,8 @@ export default class BottomSheetOrder extends Component {
               }}>
               Pilih Tanggal Pengiriman
             </Text>
-            <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
+            <View
+              style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
               <View
                 style={{
                   width: 80,
@@ -133,7 +137,7 @@ export default class BottomSheetOrder extends Component {
                       color: 'green',
                       marginLeft: 25,
                     }}>
-                    Rabu
+                    {setTimeChooser().day1}
                   </Text>
                   <Text
                     style={{
@@ -142,7 +146,7 @@ export default class BottomSheetOrder extends Component {
                       color: 'green',
                       marginLeft: 20,
                     }}>
-                    20 Mei
+                    {`${setTimeChooser().date1} ${setTimeChooser().month1}`}
                   </Text>
                 </TouchableOpacity>
               </View>
@@ -168,7 +172,7 @@ export default class BottomSheetOrder extends Component {
                       color: 'green',
                       marginLeft: 25,
                     }}>
-                    Sabtu
+                    {setTimeChooser().day2}
                   </Text>
                   <Text
                     style={{
@@ -177,7 +181,7 @@ export default class BottomSheetOrder extends Component {
                       color: 'green',
                       marginLeft: 20,
                     }}>
-                    23 Mei
+                    {`${setTimeChooser().date2} ${setTimeChooser().month2}`}
                   </Text>
                 </TouchableOpacity>
               </View>
