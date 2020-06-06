@@ -6,6 +6,7 @@ import {Icon} from 'react-native-elements';
 
 //utilities
 import getTime from '../../utilities/getTime';
+import setTimeChooser from '../../utilities/setTImeChooser';
 
 export default class BottomSheetOrder extends Component {
   render() {
@@ -130,7 +131,7 @@ export default class BottomSheetOrder extends Component {
                       color: 'green',
                       marginLeft: 25,
                     }}>
-                    Rabu
+                    {setTimeChooser().day1}
                   </Text>
                   <Text
                     style={{
@@ -139,7 +140,7 @@ export default class BottomSheetOrder extends Component {
                       color: 'green',
                       marginLeft: 20,
                     }}>
-                    20 Mei
+                    {`${setTimeChooser().date1} ${setTimeChooser().month1}`}
                   </Text>
                 </TouchableOpacity>
               </View>
@@ -165,7 +166,7 @@ export default class BottomSheetOrder extends Component {
                       color: 'green',
                       marginLeft: 25,
                     }}>
-                    Sabtu
+                    {setTimeChooser().day2}
                   </Text>
                   <Text
                     style={{
@@ -174,7 +175,7 @@ export default class BottomSheetOrder extends Component {
                       color: 'green',
                       marginLeft: 20,
                     }}>
-                    23 Mei
+                    {`${setTimeChooser().date2} ${setTimeChooser().month2}`}
                   </Text>
                 </TouchableOpacity>
               </View>
