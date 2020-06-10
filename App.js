@@ -29,9 +29,6 @@ const ShopScreenStack = createStackNavigator(
     ShopScreen: {
       screen: ShopScreen,
     },
-    DetailProduct: {
-      screen: DetailProduct,
-    },
     All: {
       screen: All,
     },
@@ -41,6 +38,17 @@ const ShopScreenStack = createStackNavigator(
   },
   {
     headerMode: 'none,',
+  },
+);
+
+const DetailProductStack = createStackNavigator(
+  {
+    DetailProduct: {
+      screen: DetailProduct,
+    },
+  },
+  {
+    headerMode: 'none',
   },
 );
 
@@ -160,6 +168,9 @@ const Router = createStackNavigator(
     },
     CheckoutScreen: {
       screen: CheckoutScreen,
+    },
+    DetailProduct: {
+      screen: DetailProductStack,
     },
   },
   {

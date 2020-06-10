@@ -5,7 +5,6 @@ import RNPickerSelect from 'react-native-picker-select';
 import {Icon} from 'react-native-elements';
 
 //utilities
-import getTime from '../../utilities/getTime';
 import setTimeChooser from '../../utilities/setTImeChooser';
 
 export default class BottomSheetOrder extends Component {

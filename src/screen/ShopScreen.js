@@ -58,32 +58,8 @@ const item_list = [
 ];
 
 class ShopScreen extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      items: this.props.cart.data,
-    };
-  }
-
-  getSnapshotBeforeUpdate() {
-    let filteredItems = this.state.items.filter(val => val.total > 0);
-    if (filteredItems.length !== this.props.cart.data.length) {
-      return filteredItems;
-    }
-    return null;
-  }
-
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    if (snapshot !== null) {
-      this.setState({
-        items: this.props.cart.data,
-      });
-    }
-  }
-
   render() {
     const items = this.props.cart.data;
-    console.log(items, 'woi ajg');
     return (
       <View style={{flex: 1, backgroundColor: Colors.WHITE}}>
         <StatusBar barStyle="dark-content" backgroundColor="white" />
@@ -1234,12 +1210,8 @@ class ShopScreen extends Component {
           {/* End Garis */}
         </ScrollView>
         {/* <Footers /> */}
-        {this.state.items.length === 0 ? null : (
-          <Cart
-            key={this.state.items}
-            items={this.state.items}
-            navigation={this.props.navigation}
-          />
+        {this.props.cart.data.length === 0 ? null : (
+          <Cart navigation={this.props.navigation} />
         )}
         {/* End Slider */}
       </View>

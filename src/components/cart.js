@@ -13,7 +13,7 @@ class Cart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: this.props.items,
+      items: this.props.cart.data,
     };
   }
 
@@ -70,10 +70,12 @@ class Cart extends Component {
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (snapshot !== null) {
       this.props.remove_item(snapshot);
+      this.setState({items: snapshot});
     }
   }
 
   render() {
+    console.log(this.props.cart, 'anjay');
     return (
       <>
         <TouchableOpacity
