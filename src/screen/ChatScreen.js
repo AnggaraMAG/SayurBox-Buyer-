@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {View, TouchableOpacity} from 'react-native';
+import {TouchableOpacity, Text, Linking} from 'react-native';
 import {ListItem} from 'react-native-elements';
+import {Container, View, Button, Icon, Fab} from 'native-base';
 
 import FABChat from '../components/componentd/FABChat';
 class ChatScreen extends Component {
@@ -24,8 +25,13 @@ class ChatScreen extends Component {
 
     return (
       <>
-        <View>
-          {list.map((l, i) => (
+        <View style={{
+          flex: 1, 
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundColor: 'white'
+        }}>
+          {/* {list.map((l, i) => (
             <TouchableOpacity
               key={i}
               onPress={() => this.props.navigation.navigate('SellerScreen')}>
@@ -37,9 +43,20 @@ class ChatScreen extends Component {
                 rightElement={l.time}
               />
             </TouchableOpacity>
-          ))}
+          ))} */}
+          <Text style={{fontSize:20, marginHorizontal: 50, textAlign: 'center', paddingBottom: 30, fontWeight: '800', color: '#576357'}}>
+          Silahkan hubungi kami via Whatsapp melalui tombol dibawah ini.
+        </Text>
+        <Button success rounded large
+              onPress={() =>
+                Linking.openURL(
+                  'https://api.whatsapp.com/send?phone=+6281210313944',
+                )
+              }>
+              <Icon name="logo-whatsapp" style={{fontSize:30}} />
+            </Button>
         </View>
-        <FABChat />
+        {/* <FABChat /> */}
       </>
     );
   }

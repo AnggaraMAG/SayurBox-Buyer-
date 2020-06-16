@@ -9,12 +9,46 @@ import {
   Body,
   Right,
   Title,
+  Form
 } from 'native-base';
-
+import axios from 'axios';
 import Colors from '../../../color/color';
 import { colors } from 'react-native-elements';
 
 export default class register extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      name: 'Abc',
+      email: '',
+      password: 'default',
+      role: 'user'
+    };
+  }
+
+  onChangeName = (e) => {
+    this.setState({ name: e.target.value});
+  }
+
+  onChangeEmail = (e) => {
+    this.setState({ email: e.target.value});
+  }
+
+  onSubmit = (e) => {
+    console.log("testSucess");
+    this.props.navigation.navigate('ToRegisterVerifForm');
+    console.log(this.state.name);
+    // axios.post( "web",{
+    //   name: this.state.name,
+    //   email:this.state.email,
+    //   password: this.state.password,
+    //   role: this.state.role
+    // })
+    // .then(res => {
+    //   console.log("successfully registered");
+    // })
+  }
+
   render() {
     return (
       <Container>
@@ -34,13 +68,14 @@ export default class register extends Component {
           </Right>
         </Header>
         <View style={styles.container}>
+          
           <Text style={styles.mbottom}>
             Buat akun di Sayurbox untuk kemudahan memesan dan memantau order
             Anda
           </Text>
           <View>
             <Text style={styles.title}>Nama</Text>
-            <TextInput style={styles.input} placeholder="John Doe" />
+            <TextInput style={styles.input} placeholder="John Doe" value={this.state.name} onChange={this.onChangeName} />
           </View>
           <View>
             <Text style={styles.title}>No Telepon</Text>
@@ -48,7 +83,7 @@ export default class register extends Component {
           </View>
           <View>
             <Text style={styles.title}>Email</Text>
-            <TextInput style={styles.input} placeholder="johndoe@email.com" />
+            <TextInput style={styles.input} placeholder="johndoe@email.com" value={this.state.email} onChange={this.onChangeEmail} />
           </View>
           <View>
             <Text style={styles.title}>Alamat</Text>
@@ -56,9 +91,12 @@ export default class register extends Component {
           </View>
           <Button
             success
+            type="submit"
             style={{width: '100%', alignSelf: 'center'}}
-            onPress={() =>
-              this.props.navigation.navigate('ToRegisterVerifForm')
+            onPress={
+              this.onSubmit
+              // () =>
+              // this.props.navigation.navigate('ToRegisterVerifForm')
             }>
             <Text
               style={{
@@ -75,6 +113,7 @@ export default class register extends Component {
                 Sudah Punya Akun ?
               </Text>
               <Button
+              
                 bordered
                 success
                 onPress={() =>
